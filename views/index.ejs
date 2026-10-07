@@ -1,0 +1,63 @@
+<%- include("partials/header", { title: "The Daily Planet" }) %>
+
+<section class="hero-section">
+  <% if (posts.length === 0) { %>
+    <div class="empty-state">
+      <h1>No stories yet</h1>
+      <p>Be the first to publish a post on The Daily Planet.</p>
+      <a href="/posts/new" class="btn btn-accent">+ New Post</a>
+    </div>
+  <% } else { %>
+    <% const [featured, ...rest] = posts; %>
+
+    <a href="/posts/<%= featured.id %>" class="featured-post">
+      <% if (featured.imageUrl) { %>
+        <img src="<%= featured.imageUrl %>" alt="<%= featured.title %>" class="featured-image" />
+      <% } %>
+      <div class="featured-overlay">
+        <h1 class="featured-title"><%= featured.title %></h1>
+        <p class="featured-meta">
+          <span class="author"><%= featured.author %></span>
+          <span class="dot">&middot;</span>
+          <span class="date"><%= formatDate(featured.createdAt) %></span>
+        </p>
+      </div>
+    </a>
+
+    <div class="post-actions-row">
+      <a href="/posts/<%= featured.id %>/edit" class="btn btn-small">Edit</a>
+      <form action="/posts/<%= featured.id %>?_method=DELETE" method="POST" class="inline-form" onsubmit="return confirm('Delete this post?');">
+        <button type="submit" class="btn btn-small btn-danger">Delete</button>
+      </form>
+    </div>
+
+    <% if (rest.length > 0) { %>
+      <h2 class="section-heading">More Stories</h2>
+      <div class="post-grid">
+        <% rest.forEach(post => { %>
+          <article class="post-card">
+            <a href="/posts/<%= post.id %>" class="post-card-link">
+              <% if (post.imageUrl) { %>
+                <img src="<%= post.imageUrl %>" alt="<%= post.title %>" class="post-card-image" />
+              <% } %>
+              <h3 class="post-card-title"><%= post.title %></h3>
+            </a>
+            <p class="post-card-meta">
+              <span class="author"><%= post.author %></span>
+              <span class="dot">&middot;</span>
+              <span class="date"><%= formatDate(post.createdAt) %></span>
+            </p>
+            <div class="post-actions-row">
+              <a href="/posts/<%= post.id %>/edit" class="btn btn-small">Edit</a>
+              <form action="/posts/<%= post.id %>?_method=DELETE" method="POST" class="inline-form" onsubmit="return confirm('Delete this post?');">
+                <button type="submit" class="btn btn-small btn-danger">Delete</button>
+              </form>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    <% } %>
+  <% } %>
+</section>
+
+<%- include("partials/footer") %>

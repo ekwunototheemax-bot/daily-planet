@@ -1,0 +1,33 @@
+<%- include("partials/header", { title: post.title + " · The Daily Planet" }) %>
+
+<article class="post-detail">
+  <a href="/" class="back-link">&larr; Back to all posts</a>
+
+  <h1 class="post-detail-title"><%= post.title %></h1>
+  <p class="post-detail-meta">
+    <span class="author"><%= post.author %></span>
+    <span class="dot">&middot;</span>
+    <span class="date"><%= formatDate(post.createdAt) %></span>
+  </p>
+
+  <% if (post.imageUrl) { %>
+    <img src="<%= post.imageUrl %>" alt="<%= post.title %>" class="post-detail-image" />
+  <% } %>
+
+  <div class="post-detail-content">
+    <% post.content.split("\n").forEach(paragraph => { %>
+      <% if (paragraph.trim()) { %>
+        <p><%= paragraph %></p>
+      <% } %>
+    <% }) %>
+  </div>
+
+  <div class="post-actions-row">
+    <a href="/posts/<%= post.id %>/edit" class="btn">Edit Post</a>
+    <form action="/posts/<%= post.id %>?_method=DELETE" method="POST" class="inline-form" onsubmit="return confirm('Delete this post?');">
+      <button type="submit" class="btn btn-danger">Delete Post</button>
+    </form>
+  </div>
+</article>
+
+<%- include("partials/footer") %>

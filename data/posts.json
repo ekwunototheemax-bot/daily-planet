@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "title": "Our first five impressions of the new planet rover — exciting but underpowered",
+    "author": "Clark Kent",
+    "imageUrl": "https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=1200&q=80",
+    "content": "The new rover shows a lot of promise for interplanetary explorers, but there's a long road ahead. We spent a week putting it through its paces across rocky terrain, dust storms, and sub-zero nights, and came away impressed by its sensors but let down by its battery life.\r\n\r\nStill, for a first attempt, the engineering team should be proud. Expect a full review once we've logged a few hundred more miles.",
+    "createdAt": "2026-10-06T08:15:00.000Z"
+  },
+  {
+    "id": "2",
+    "title": "Metropolis City Council approves funding for new data center",
+    "author": "Lois Lane",
+    "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80",
+    "content": "After months of public hearings, the council voted 6-2 to approve construction of a new data center just outside the city limits. Residents raised concerns about water usage and noise, but officials say the facility will bring hundreds of jobs and millions in tax revenue.\n\nConstruction is expected to begin early next year.",
+    "createdAt": "2026-10-05T14:30:00.000Z"
+  },
+  {
+    "id": "3",
+    "title": "Review: the latest smartwatch is finally worth the upgrade",
+    "author": "Jimmy Olsen",
+    "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80",
+    "content": "After years of incremental updates, this year's model finally feels like a meaningful leap forward. The battery lasts nearly two full days, the screen is brighter outdoors, and the new health sensors are genuinely useful rather than gimmicky.\n\nIt isn't cheap, but if you've been holding off on an upgrade, this is the year to do it.",
+    "createdAt": "2026-10-03T09:00:00.000Z"
+  }
+]
